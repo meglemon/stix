@@ -1,6 +1,6 @@
 <template>
   <div id="register" class="text-center">
-    <form v-on:submit.prevent="register">
+    <form class="form-box" v-on:submit.prevent="register">
       <h1>Create Account</h1>
       <div role="alert" v-if="registrationErrors">
         {{ registrationErrorMsg }}
@@ -78,5 +78,25 @@ export default {
 }
 label {
   margin-right: 0.5rem;
+}
+
+#register{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-image: url("src/assets/girl.jpg"); 
+  height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.form-box{
+  display: inline-block;
+  background-color: aliceblue;
+  padding: 2.5%;
+  border-radius: 5%;
+  opacity: .85;
 }
 </style>

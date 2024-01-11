@@ -64,7 +64,29 @@ export default {
 .form-input-group {
   margin-bottom: 1rem;
 }
+
 label {
   margin-right: 0.5rem;
 }
+
+#login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-image: url("src/assets/girl.jpg"); 
+  height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+form{
+  display: inline-block;
+  background-color: aliceblue;
+  padding: 2.5%;
+  border-radius: 5%;
+  opacity: .85;
+}
+
 </style>
