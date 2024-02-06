@@ -1,6 +1,8 @@
 BEGIN TRANSACTION;
 
 DROP TABLE IF EXISTS users;
+DROP TABLE if EXISTS lists;
+DROP TABLE if EXISTS items;
 
 CREATE TABLE users (
 	user_id SERIAL,
@@ -15,7 +17,7 @@ CREATE TABLE lists (
     list_name varchar(100) NOT NULL,
     user_id int NOT NULL,
     CONSTRAINT PK_list_id PRIMARY KEY (list_id),
-    CONSTRAINT FK_user_id FOREIGN KEY (user_id)
+    CONSTRAINT FK_user_id FOREIGN KEY (user_id) REFERENCES users (user_id)
 );
 
 CREATE TABLE items (
@@ -23,7 +25,7 @@ CREATE TABLE items (
   item_name varchar (100) NOT NULL,
   list_id int NOT NULL,
   CONSTRAINT PK_item_id PRIMARY KEY (item_id),
-  CONSTRAINT FK_list_id FOREIGN KEY (list_id)
+  CONSTRAINT FK_list_id FOREIGN KEY (list_id) REFERENCES lists (list_id)
 );
 
 COMMIT TRANSACTION;
