@@ -27,7 +27,7 @@ public class JdbcListsDao implements ListsDao{
         List<String> listNames = new ArrayList<>();
         String name;
 
-        String sql = "SELECT list_id, list_name FROM lists" +
+        String sql = "SELECT list_id, list_name FROM lists " +
                 "WHERE user_id = ?";
 
         try {

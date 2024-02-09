@@ -1,14 +1,26 @@
 <template>
-    <div>
-        <h1>Collection Name</h1>
-        <ul>
-            <li>collection items list</li>
-        </ul>
+    <div v-for="listName in lists" :key=lists>
+       {{ listName }}
     </div>
 </template>
 
 <script>
+import ListsService from '../services/ListsService';
+
 export default {
+
+    data(){
+        return{
+            listName: '',
+            lists: []
+        }
+    },
+
+    created(){
+        ListsService
+            .getListsByUserId(this.$store.state.user.id)
+            .then((response) => {this.lists = response.data});
+    }
     
 }
 </script>
