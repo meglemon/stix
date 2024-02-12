@@ -34,7 +34,7 @@ public class JdbcListsDao implements ListsDao{
             SqlRowSet results = jdbcTemplate.queryForRowSet(sql, userId);
 
             while(results.next()){
-                name = results.getNString("list_name");
+                name = results.getString("list_name");
                 listNames.add(name);
             }
         } catch (CannotGetJdbcConnectionException e){
@@ -46,7 +46,7 @@ public class JdbcListsDao implements ListsDao{
 
     private Lists mapRowToList(SqlRowSet results) {
         Lists list = new Lists();
-        list.setListName(results.getNString("list_name"));
+        list.setListName(results.getString("list_name"));
         list.setListId(results.getInt("list_id"));
         list.setUserId(results.getInt("user_id"));
         return list;
