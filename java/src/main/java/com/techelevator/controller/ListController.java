@@ -31,8 +31,5 @@ public class ListController {
         return listsDao.createNewList(newList);
     }
 
-    // add item from list
-
-    // remove item from list
 
 }

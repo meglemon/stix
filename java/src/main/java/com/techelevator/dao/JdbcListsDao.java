@@ -52,13 +52,6 @@ public class JdbcListsDao implements ListsDao{
         return newList;
     }
 
-    //add items to list
-//      for (String item : newList.)
-//    String sqlAddItems = "INSERT INTO items (item_name, list_id) " +
-//            "VALUES (?," + listId + ");";
-
-
-
     private Lists mapRowToList(SqlRowSet results) {
         Lists list = new Lists();
         list.setList_name(results.getString("list_name"));
