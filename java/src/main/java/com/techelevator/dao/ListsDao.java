@@ -8,4 +8,6 @@ public interface ListsDao {
 
     List<String> getListsByUserId(int userId);
 
+    Lists createNewList(Lists newList);
+
 }

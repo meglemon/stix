@@ -1,34 +1,37 @@
 package com.techelevator.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class Lists {
 
     //  FIELDS  //
-    private String listName;
+    private String list_name;
     private List<String> list = new ArrayList<>();
     private int listId;
-    private int userId;
+    private int user_id;
 
 
     //  CONSTRUCTOR //
-    public Lists(String listName) {
-        this.listName = listName;
+    public Lists(String list_name) {
+        this.list_name = list_name;
         this.listId = listId;
-        this.userId = userId;
+        this.user_id = user_id;
+        this.list = list;
     }
 
     public Lists(){};
 
 
     //  GETTERS & SETTERS   //
-    public String getListName() {
-        return listName;
+    public String getList_name() {
+        return list_name;
     }
 
-    public void setListName(String listName) {
-        this.listName = listName;
+    public void setList_name(String list_name) {
+        this.list_name = list_name;
     }
 
     public int getListId() {
@@ -39,12 +42,12 @@ public class Lists {
         this.listId = listId;
     }
 
-    public int getUserId() {
-        return userId;
+    public int getUser_id() {
+        return user_id;
     }
 
-    public void setUserId(int userId) {
-        this.userId = userId;
+    public void setUser_id(int user_id) {
+        this.user_id = user_id;
     }
 
     //  FUNCTIONS   //
@@ -56,6 +59,13 @@ public class Lists {
         list.remove(item);
     }
 
-
-
+    @Override
+    public String toString() {
+        return "Lists{" +
+                "list_name='" + list_name + '\'' +
+                ", list=" + list +
+                ", listId=" + listId +
+                ", userId=" + user_id +
+                '}';
+    }
 }

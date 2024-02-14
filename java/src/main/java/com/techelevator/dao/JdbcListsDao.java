@@ -3,12 +3,10 @@ package com.techelevator.dao;
 import com.techelevator.exception.DaoException;
 import org.springframework.jdbc.CannotGetJdbcConnectionException;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.support.SqlValue;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
 
 import com.techelevator.model.Lists;
-import com.techelevator.model.User;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,7 +19,6 @@ public class JdbcListsDao implements ListsDao{
     public JdbcListsDao(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
     }
-
 
     public List<String> getListsByUserId(int userId){
         List<String> listNames = new ArrayList<>();
@@ -44,11 +41,29 @@ public class JdbcListsDao implements ListsDao{
         return listNames;
     }
 
+    public Lists createNewList(Lists newList){
+        String sql = "INSERT INTO lists (list_name, user_id) " +
+                "VALUES (?, ?) " +
+                "RETURNING list_id;";
+
+        int listId = jdbcTemplate.queryForObject(sql, Integer.class, newList.getList_name(), newList.getUser_id());
+        newList.setListId(listId);
+
+        return newList;
+    }
+
+    //add items to list
+//      for (String item : newList.)
+//    String sqlAddItems = "INSERT INTO items (item_name, list_id) " +
+//            "VALUES (?," + listId + ");";
+
+
+
     private Lists mapRowToList(SqlRowSet results) {
         Lists list = new Lists();
-        list.setListName(results.getString("list_name"));
+        list.setList_name(results.getString("list_name"));
         list.setListId(results.getInt("list_id"));
-        list.setUserId(results.getInt("user_id"));
+        list.setUser_id(results.getInt("user_id"));
         return list;
     }
 
