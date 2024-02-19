@@ -1,5 +1,7 @@
 package com.techelevator.model;
 
+import org.springframework.stereotype.Component;
+
 public class Items {
 
     //  FIELDS  //
