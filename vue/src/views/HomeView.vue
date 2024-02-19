@@ -63,10 +63,11 @@ export default {
 
 /* Style the header */
 .header {
-  background-color: #f1f1f1;
+  background-color: blanchedalmond;
+  opacity: .5;
   padding: 30px;
   text-align: center;
-  font-size: 35px;
+  font-size: 20px;
 }
 
 /* Container for flexboxes */
@@ -81,29 +82,32 @@ export default {
   -ms-flex: 1;
   flex: 1;
   padding: 10px;
-  height: 300px; /* Should be removed. Only for demonstration */
+  margin: 5px;
+  border-radius: 15px;
 }
 .center-column {
   -webkit-flex: 1;
   -ms-flex: 1;
   flex: 1;
   padding: 10px;
-  height: 300px; /* Should be removed. Only for demonstration */
+  margin: 5px;
+  border-radius: 15px;
 }
 .right-column {
   -webkit-flex: 1;
   -ms-flex: 1;
   flex: 1;
   padding: 10px;
-  height: 300px; /* Should be removed. Only for demonstration */
+  margin: 5px;
+  border-radius: 15px;
 }
 
-/* Style the footer */
+/* Style the footer
 .footer {
   background-color: #f1f1f1;
   padding: 10px;
   text-align: center;
-}
+} */
 
 /* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
 @media (max-width: 600px) {
